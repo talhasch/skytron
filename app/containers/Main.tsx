@@ -14,6 +14,7 @@ import { setQueue, startQueue } from '../store/queue';
 
 import DropZone from '../components/drop-zone';
 import UploadQueue from '../components/upload-queue';
+import TopMenu from '../components/top-menu';
 
 interface Props {
   queue: Queue;
@@ -46,6 +47,7 @@ class Main extends React.Component<Props> {
 
     return (
       <div className="wrapper">
+        <TopMenu/>
         <DropZone onDrop={this.onDrop} disabled={inProgress}/>
         <UploadQueue {...this.props} />
       </div>

@@ -17,7 +17,8 @@ $font-family-base: "IBM Plex Sans", sans-serif;
 @import "components/drop-zone";
 @import "components/upload-queue";
 @import "components/indicator";
-
+@import "components/top-menu";
+@import "components/upload-history";
 
 body {
   background: $snow-drift;

@@ -58,10 +58,11 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 780,
-    maxWidth: 780,
+    width: 992,
+    maxWidth: 992,
     minWidth: 780,
     height: 600,
+    minHeight: 600,
     webPreferences:
       (process.env.NODE_ENV === 'development' ||
         process.env.E2E_BUILD === 'true') &&
