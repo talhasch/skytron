@@ -1,0 +1,62 @@
+.queue {
+  width: $width;
+  margin: 20px auto;
+
+  .task {
+    background: #fff;
+    box-shadow: $box-shadow;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+
+    .icon-indicator {
+      color: $silver;
+      margin-right: 10px;
+      opacity: 0.7;
+
+      &.done {
+        opacity: 1;
+        color: $primary;
+      }
+
+      svg {
+        height: 50px;
+      }
+    }
+
+    .task-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .filename {
+        font-weight: 400;
+        margin-bottom: 4px;
+      }
+
+      .link, .status {
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      .status {
+        color: $silver;
+      }
+    }
+
+    .progress-indicator, .copy {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+

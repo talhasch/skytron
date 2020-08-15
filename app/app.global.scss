@@ -1,0 +1,32 @@
+$heavy-metal: #171917;
+$mako: #3c4449;
+$fern: #6EB269;
+$snow-drift: #F2F7F2;
+$steel: #788187;
+$silver: #c1c5c7;
+
+$primary: $fern;
+$body-color: $heavy-metal;
+$box-shadow: 0 .1rem .1rem rgba($mako, .15);
+$width: 680px;
+
+$font-family-base: "IBM Plex Sans", sans-serif;
+
+@import "~bootstrap/scss/bootstrap";
+
+@import "components/drop-zone";
+@import "components/upload-queue";
+@import "components/indicator";
+
+
+body {
+  background: $snow-drift;
+}
+
+.btn svg {
+  height: 18px;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
