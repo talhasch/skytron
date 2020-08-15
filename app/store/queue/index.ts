@@ -17,6 +17,7 @@ import {
   ProgressAction,
   DoneAction,
   FailAction,
+  ResetAction,
   HistoryItem
 } from './types';
 
@@ -44,6 +45,9 @@ export default (state: Queue = initialState, action: Actions): Queue => {
     }
     case ActionTypes.FAIL: {
       return state.map(t => t.id === action.id ? { ...t, done: true, failed: true } : t);
+    }
+    case ActionTypes.RESET: {
+      return initialState;
     }
     default:
       return state;
@@ -86,6 +90,9 @@ export const startQueue = () => async (dispatch: Dispatch, getState: () => RootS
   }
 };
 
+export const resetQueue = () => (dispatch: Dispatch) => {
+  dispatch(resetAct());
+};
 
 /* Action Creators */
 export const setAct = (paths: string[]): SetAction => {
@@ -115,5 +122,11 @@ export const failAct = (id: string): FailAction => {
   return {
     type: ActionTypes.FAIL,
     id
+  };
+};
+
+export const resetAct = (): ResetAction => {
+  return {
+    type: ActionTypes.RESET
   };
 };

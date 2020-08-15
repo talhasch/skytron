@@ -10,7 +10,7 @@ import { HistoryItem } from '../store/upload-history/types';
 import { Queue } from '../store/queue/types';
 
 import { addToUploadHistory } from '../store/upload-history';
-import { setQueue, startQueue } from '../store/queue';
+import { setQueue, startQueue, resetQueue } from '../store/queue';
 
 import DropZone from '../components/drop-zone';
 import UploadQueue from '../components/upload-queue';
@@ -21,6 +21,7 @@ interface Props {
   uploadHistory: HistoryItem[];
   setQueue: (paths: string[]) => void;
   startQueue: () => void;
+  resetQueue: () => void
 }
 
 class Main extends React.Component<Props> {
@@ -34,7 +35,7 @@ class Main extends React.Component<Props> {
   componentDidUpdate(prevProps: Readonly<Props>) {
     const { queue } = this.props;
     if (!isEqual(queue, prevProps.queue)) {
-      const finished = queue.find(x => !x.done) === undefined;
+      const finished = queue.length > 0 && queue.find(x => !x.done) === undefined;
       if (finished) {
         new Notification('Skytron', { body: 'Upload completed!' });
       }
@@ -64,7 +65,8 @@ export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
     {
       addToUploadHistory,
       setQueue,
-      startQueue
+      startQueue,
+      resetQueue
     },
     dispatch
   );

@@ -20,6 +20,7 @@ export enum ActionTypes {
   PROGRESS = '@queue/PROGRESS',
   DONE = '@queue/DONE',
   FAIL = '@queue/FAIL',
+  RESET = '@queue/RESET',
 }
 
 export interface SetAction {
@@ -44,4 +45,8 @@ export interface FailAction {
   id: string;
 }
 
-export type Actions = SetAction | ProgressAction | DoneAction | FailAction ;
+export interface ResetAction {
+  type: ActionTypes.RESET;
+}
+
+export type Actions = SetAction | ProgressAction | DoneAction | FailAction | ResetAction;

@@ -9,14 +9,22 @@ import BtnCopy from '../btn-copy';
 
 import filename from '../../util/filename';
 
-
 import { fileSvg, fileCheckSvg } from '../../svg';
 
 interface Props {
-  queue: Queue
+  queue: Queue,
+  resetQueue: () => void
 }
 
 export default class UploadQueue extends React.Component<Props> {
+
+  clear = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    const { resetQueue } = this.props;
+    resetQueue();
+  };
+
   render() {
     const { queue } = this.props;
 
@@ -24,8 +32,18 @@ export default class UploadQueue extends React.Component<Props> {
       return null;
     }
 
+    const inProgress = queue.find(x => !x.done) !== undefined;
+    const allLinks = queue.map(x => x.link ? link(x.link) : '').join("\n");
+  console.log(allLinks)
     return (
       <div className="queue">
+        {!inProgress && (
+          <div className="queue-menu">
+            <a href="#" onClick={this.clear}>Clear</a>
+            {queue.length > 1 && (<BtnCopy value={allLinks}><a href="#">Copy all</a></BtnCopy>)}
+          </div>
+        )}
+
         {queue.map(task => {
 
           if (task.failed) {

@@ -1,6 +1,16 @@
 .queue {
   width: $width;
-  margin: 20px auto;
+  margin: 10px auto 20px auto;
+
+  .queue-menu {
+    display: flex;
+    margin: 10px 0;
+    justify-content: flex-end;
+
+    a {
+      margin-left: 20px;
+    }
+  }
 
   .task {
     background: #fff;
@@ -60,11 +70,3 @@
     }
   }
 }
-
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 30px;
-  height: 30px;
-}
-
