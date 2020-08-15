@@ -2,9 +2,13 @@ import React from 'react';
 
 import { Modal } from 'react-bootstrap';
 
+import filename from '../../util/filename';
+import link from '../../helper/link';
+
 import { HistoryItem } from '../../store/queue/types';
 
 import * as ls from '../../util/local-storage';
+import BtnCopy from '../btn-copy';
 
 interface Props {
   onHide: () => void
@@ -37,7 +41,24 @@ export default class UploadHistory extends React.Component<Props, State> {
         <Modal.Title>Upload History</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {(() => {
+          if (data.length === 0) {
+            return <span className="text-muted">History is empty.</span>;
+          }
 
+          return data.map(i => (
+            <div className="item">
+              <div className="item-info">
+                <div className="filename">{filename(i.path)}</div>
+                <div className="link"><a href={link(i.link)}>{link(i.link)}</a></div>
+              </div>
+              <div className="copy">
+                <BtnCopy value={link(i.link)}/>
+              </div>
+            </div>
+          ));
+
+        })()}
       </Modal.Body>
     </Modal>;
   }
