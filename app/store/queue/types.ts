@@ -1,3 +1,9 @@
+export interface HistoryItem {
+  path: string,
+  link: string,
+  timestamp: number,
+}
+
 export interface Task {
   id: string,
   path: string,

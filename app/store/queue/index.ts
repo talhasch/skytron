@@ -5,6 +5,7 @@ import { Dispatch } from 'redux';
 import uploader from '../../helper/uploader';
 import random from '../../util/random';
 import filename from '../../util/filename';
+import * as ls from '../../util/local-storage';
 
 import { RootState } from '../index';
 
@@ -15,7 +16,8 @@ import {
   SetAction,
   ProgressAction,
   DoneAction,
-  FailAction
+  FailAction,
+  HistoryItem
 } from './types';
 
 export const initialState: Queue = [];
@@ -79,6 +81,8 @@ export const startQueue = () => async (dispatch: Dispatch, getState: () => RootS
 
     dispatch(doneAct(task.id, link));
 
+    const hItem: HistoryItem = { path: task.path, link, timestamp: Date.now() };
+    ls.set(`history_${task.id}_${Date.now()}`, hItem);
   }
 };
 
