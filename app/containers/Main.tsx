@@ -35,7 +35,7 @@ class Main extends React.Component<Props> {
     if (!isEqual(queue, prevProps.queue)) {
       const finished = queue.find(x => !x.done) === undefined;
       if (finished) {
-        new Notification('Skytron', { body: 'All files pinned to Skynet!' });
+        new Notification('Skytron', { body: 'Upload completed!' });
       }
     }
   }

@@ -27,6 +27,17 @@ export default class UploadQueue extends React.Component<Props> {
     return (
       <div className="queue">
         {queue.map(task => {
+
+          if (task.failed) {
+            return <div className="task" key={task.id}>
+              <div className="icon-indicator failed">{fileSvg}</div>
+              <div className="task-info">
+                <div className="filename">{filename(task.path)}</div>
+                <div className="failed">Transfer failed.</div>
+              </div>
+            </div>;
+          }
+
           const fullLink = task.done && task.link ? link(task.link) : '';
 
           return <div className="task" key={task.id}>

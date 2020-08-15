@@ -20,6 +20,10 @@
         color: $primary;
       }
 
+      &.failed {
+        color: red;
+      }
+
       svg {
         height: 50px;
       }
@@ -36,13 +40,17 @@
         margin-bottom: 4px;
       }
 
-      .link, .status {
+      .link, .status, .failed {
         font-size: 14px;
         font-weight: 300;
       }
 
       .status {
         color: $silver;
+      }
+
+      .failed {
+        color: red;
       }
     }
 
