@@ -1,4 +1,13 @@
 .upload-history-modal {
+
+  .modal-header {
+    align-items: center;
+
+    .modal-title {
+      margin-right: 120px;
+    }
+  }
+
   .modal-body {
     height: 400px;
     overflow: auto;
