@@ -6,10 +6,8 @@ import isEqual from 'react-fast-compare';
 
 import { Store } from '../store';
 
-import { HistoryItem } from '../store/upload-history/types';
 import { Queue } from '../store/queue/types';
 
-import { addToUploadHistory } from '../store/upload-history';
 import { setQueue, startQueue, resetQueue } from '../store/queue';
 
 import DropZone from '../components/drop-zone';
@@ -18,7 +16,6 @@ import TopMenu from '../components/top-menu';
 
 interface Props {
   queue: Queue;
-  uploadHistory: HistoryItem[];
   setQueue: (paths: string[]) => void;
   startQueue: () => void;
   resetQueue: () => void
@@ -63,7 +60,6 @@ const mapStateToProps = (state: Store) => ({
 export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) =>
   bindActionCreators(
     {
-      addToUploadHistory,
       setQueue,
       startQueue,
       resetQueue
