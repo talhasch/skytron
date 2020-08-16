@@ -12,6 +12,7 @@ import * as ls from '../../util/local-storage';
 
 import BtnCopy from '../btn-copy';
 import PopoverConfirm from '../popover-confirm';
+import ExLink from '../ex-link';
 
 interface Props {
   onHide: () => void
@@ -66,7 +67,7 @@ export default class UploadHistory extends React.Component<Props, State> {
               <div className="item" key={i}>
                 <div className="item-info">
                   <div className="filename">{filename(item.path)}</div>
-                  <div className="link"><a href={link(item.link)}>{link(item.link)}</a></div>
+                  <div className="link"><ExLink href={link(item.link)}/></div>
                 </div>
                 <div className="copy">
                   <BtnCopy value={link(item.link)}/>

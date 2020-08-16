@@ -6,10 +6,13 @@ import Indicator from '../indicator';
 
 import link from '../../helper/link';
 import BtnCopy from '../btn-copy';
+import ExLink from '../ex-link';
 
 import filename from '../../util/filename';
 
 import { fileSvg, fileCheckSvg } from '../../svg';
+
+const shell = require('electron').shell;
 
 interface Props {
   queue: Queue,
@@ -25,6 +28,10 @@ export default class UploadQueue extends React.Component<Props> {
     resetQueue();
   };
 
+  openLink = (href: string) => {
+    shell.openExternal(href);
+  };
+
   render() {
     const { queue } = this.props;
 
@@ -33,8 +40,8 @@ export default class UploadQueue extends React.Component<Props> {
     }
 
     const inProgress = queue.find(x => !x.done) !== undefined;
-    const allLinks = queue.map(x => x.link ? link(x.link) : '').join("\n");
-  console.log(allLinks)
+    const allLinks = queue.map(x => x.link ? link(x.link) : '').join('\n');
+
     return (
       <div className="queue">
         {!inProgress && (
@@ -66,7 +73,7 @@ export default class UploadQueue extends React.Component<Props> {
               <div className="filename">{filename(task.path)}</div>
               {(() => {
                 if (task.done) {
-                  return <div className="link"><a href={fullLink}>{fullLink}</a></div>;
+                  return <div className="link"><ExLink href={fullLink}/></div>;
                 }
 
                 if (task.progress === 100) {
