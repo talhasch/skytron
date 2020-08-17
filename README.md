@@ -2,6 +2,12 @@
 
 Cross platform Sia Skynet desktop client built with electron.
 
+---
+
+<img src="https://raw.githubusercontent.com/talhasch/skytron/master/internals/img/screenshot.png" width="100%" />
+
+---
+
 ## Download
 
 - [Mac](https://github.com/talhasch/skytron/releases/download/v0.0.1/Skytron-0.0.1.dmg)
