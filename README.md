@@ -14,4 +14,4 @@ Cross platform Sia Skynet desktop client built with electron.
 
 ---
 
-Demo: https://siasky.net/AAC8ia0fq3b9L5K8qenltcFyfrkJStYEtEJaHxVWieEzQA
+Demo Video: https://siasky.net/AAC8ia0fq3b9L5K8qenltcFyfrkJStYEtEJaHxVWieEzQA
