@@ -89,7 +89,7 @@
         "rpm",
         "AppImage"
       ],
-      "category": "Utilities"
+      "category": "Utility"
     },
     "directories": {
       "buildResources": "resources",
